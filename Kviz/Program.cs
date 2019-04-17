@@ -28,12 +28,12 @@ namespace Kviz
         // ---------------------------------------
 
 
-        // funkce tymu (2) Karas + Knizek + Jindra
+        // funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
         // -----------------------------------
 
 
-        // funkce tymu (3) Lukas + Hepnar + Krejcar
+        // funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
         // ------------------------------------
 
