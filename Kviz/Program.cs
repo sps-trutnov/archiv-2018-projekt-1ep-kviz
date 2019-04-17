@@ -28,21 +28,45 @@ namespace Kviz
         // ---------------------------------------
 
 
-        // funkce tymu (2) Karas + Knizek + Jindra
+        // funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
+        static void polozitOtazku(Otazka otazka)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(otazka.zneniOtazky);
+            Console.ResetColor();
+        }
 
-        // -----------------------------------
+        static void nabidnoutOdpovedi(Otazka otazka)
+        {
+           int moznost = 1;
+            foreach (Odpoved odpoved in otazka.mozneOdpovedi)
+            {
+                Console.WriteLine(moznost + ") " + odpoved.zneniOdpovedi);
+                moznost = moznost + 1;
+
+                if (jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
+                {
 
 
-        // funkce tymu (3) Lukas + Hepnar + Krejcar
 
-        // ------------------------------------
+                    ziskaneSkore += 1;
+                }
+            }
+        }
+
+    // -----------------------------------
 
 
-        // funkce tymu (4) Gaspar + Janus + Janicek
+    // funkce tymu (3) Lukas + Hepnar + Krejcar
 
-        // ------------------------------------
+    // ------------------------------------
 
-        static void Main(string[] args)
+
+    // funkce tymu (4) Gaspar + Janus + Janicek
+
+    // ------------------------------------
+
+    static void Main(string[] args)
         {
             Console.WriteLine(" V Í T E J T E   U   L A K A T O Š K V Í Z U ");
             Console.WriteLine("---------------------------------------------");
