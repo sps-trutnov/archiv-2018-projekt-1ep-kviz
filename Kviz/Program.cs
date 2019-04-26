@@ -5,43 +5,44 @@ namespace Kviz
 {
     class Program
     {
+        #region pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class
         struct Odpoved
         {
             public string zneniOdpovedi;
             public bool spravnostOdpovedi;
         }
-
         struct Otazka
         {
             public string zneniOtazky;
             public List<Odpoved> mozneOdpovedi;
         }
-
         struct Vysledek
         {
             public string prezdivka;
             public uint skore;
         }
+        #endregion
 
-        // funkce tymu (1) Landspersky + Hnyk + Korcak
+        #region funkce tymu (1) Landspersky + Hnyk + Korcak
 
-        // ---------------------------------------
-
-
-        // funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
-
-        // -----------------------------------
+        #endregion
 
 
-        // funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
+        #region funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
-        // ------------------------------------
+        #endregion
 
 
-        // funkce tymu (4) Gaspar + Janus + Janicek
+        #region funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
-        // ------------------------------------
+        #endregion
 
+
+        #region funkce tymu (4) Gaspar + Janus + Janicek
+
+        #endregion
+
+        #region hlavni program
         static void Main(string[] args)
         {
             Console.WriteLine(" V Í T E J T E   U   L A K A T O Š K V Í Z U ");
@@ -89,5 +90,6 @@ namespace Kviz
             Console.CursorVisible = false;
             Console.ReadKey(true);
         }
+        #endregion
     }
 }
