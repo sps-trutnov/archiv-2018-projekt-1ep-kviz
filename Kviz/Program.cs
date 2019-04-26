@@ -13,13 +13,11 @@ namespace Kviz
             public string zneniOdpovedi { get; set; }
             public bool spravnostOdpovedi { get; set; }
         }
-
         class Otazka
         {
             public string zneniOtazky { get; set; }
             public List<Odpoved> mozneOdpovedi { get; set; }
         }
-
         class Vysledek
         {
             public string prezdivka { get; set; }
@@ -58,17 +56,14 @@ namespace Kviz
         #region funkce tymu (1) Landspersky + Hnyk + Korcak
 
         #endregion
-
-
+        
         #region funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
         #endregion
-
-
+        
         #region funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
         #endregion
-
 
         #region funkce tymu (4) Gaspar + Janus + Janicek
 
@@ -112,8 +107,8 @@ namespace Kviz
             if (umistilSe)
             {
                 string prezdivka = ziskatPrezdivku();
-                zapsatDoVysledku(prezdivka, ziskaneSkore, vysledky);
-                zapsatNaDisk(vysledky);
+                zaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
+                zapsatVysledky(vysledky, "kviz_skore.txt");
             }
             // ----------------------------------
 
