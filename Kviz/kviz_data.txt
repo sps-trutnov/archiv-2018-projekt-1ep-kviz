@@ -1,10 +1,10 @@
-﻿Kterou součástku opravář Lakatoše nenasadil?
-trubku
-alternátor
-sání
-*očko
-Kam odjel opravář Lakatoše?
-na Slovensko
-na Moravu
-*do pyče
-do servisu
+﻿?Kterou součástku opravář Lakatoše nenasadil?
+ trubku
+ alternátor
+ sání
+!očko
+?Kam odjel opravář Lakatoše?
+ na Slovensko
+ na Moravu
+!do pyče
+ do servisu

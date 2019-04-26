@@ -1,1 +1,2 @@
-﻿opravar 1000
+﻿opravar	1000
+slovak	0

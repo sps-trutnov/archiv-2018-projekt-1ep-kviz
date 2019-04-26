@@ -6,20 +6,22 @@ namespace Kviz
     class Program
     {
         #region pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class
-        struct Odpoved
+        class Odpoved
         {
-            public string zneniOdpovedi;
-            public bool spravnostOdpovedi;
+            public string zneniOdpovedi { get; set; }
+            public bool spravnostOdpovedi { get; set; }
         }
-        struct Otazka
+
+        class Otazka
         {
-            public string zneniOtazky;
-            public List<Odpoved> mozneOdpovedi;
+            public string zneniOtazky { get; set; }
+            public List<Odpoved> mozneOdpovedi { get; set; }
         }
-        struct Vysledek
+
+        class Vysledek
         {
-            public string prezdivka;
-            public uint skore;
+            public string prezdivka { get; set; }
+            public uint skore { get; set; }
         }
         #endregion
 
@@ -57,13 +59,13 @@ namespace Kviz
             int pocetLosovanychOtazek = Math.Min(10, otazky.Count);
             uint ziskaneSkore = 0;
 
-            for(int i = 0; i < pocetLosovanychOtazek; i++)
+            for (int i = 0; i < pocetLosovanychOtazek; i++)
             {
                 // ukol tymu Karas + Knizek + Jindra
                 polozitOtazku(otazky[i]);
                 nabidnoutOdpovedi(otazky[i]);
 
-                if(jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
+                if (jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
                 {
                     ziskaneSkore += 1;
                 }
@@ -76,11 +78,11 @@ namespace Kviz
             // ----------------------------------
 
             // ukol tymu Gaspar + Janus + Janicek
-            if(umistilSe)
+            if (umistilSe)
             {
                 string prezdivka = ziskatPrezdivku();
-                zaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
-                zapsatVysledky(vysledky, "kviz_skore.txt");
+                zapsatDoVysledku(prezdivka, ziskaneSkore, vysledky);
+                zapsatNaDisk(vysledky);
             }
             // ----------------------------------
 
