@@ -78,8 +78,8 @@ namespace Kviz
             if(umistilSe)
             {
                 string prezdivka = ziskatPrezdivku();
-                zapsatDoVysledku(prezdivka, ziskaneSkore, vysledky);
-                zapsatNaDisk(vysledky);
+                zaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
+                zapsatVysledky(vysledky, "kviz_skore.txt");
             }
             // ----------------------------------
 
