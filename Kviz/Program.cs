@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Kviz
 {
@@ -25,6 +27,34 @@ namespace Kviz
         }
         #endregion
 
+        #region ukazka pomocne funkce
+        static void vypsatVysledky(List<Vysledek> vysledky)
+        {
+            Console.WriteLine();
+            Console.WriteLine(" Největší znalci Lakatoše ");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine();
+
+            foreach (Vysledek vysledek in vysledky)
+            {
+                string prezdivka = vysledek.prezdivka;
+                string skore = vysledek.skore.ToString();
+
+                string vyplnPrezdivky = Enumerable.Repeat<string>(" ", 15 + 1 - prezdivka.Length).Aggregate((skladanka, dalsi) => skladanka + dalsi);
+                string vyplnSkore = Enumerable.Repeat<string>(" ", 1000.ToString().Length + 1 - skore.ToString().Length).Aggregate<string>((skladanka, dalsi) => skladanka + dalsi);
+
+                string normovanaPrezdivka = prezdivka + vyplnPrezdivky;
+                string normovaneSkore = vyplnSkore + skore;
+
+
+                Console.WriteLine(" " + normovanaPrezdivka + "   " + normovaneSkore);
+            }
+
+            Console.CursorVisible = false;
+            Console.ReadKey();
+        }
+        #endregion
+
         #region funkce tymu (1) Landspersky + Hnyk + Korcak
 
         #endregion
@@ -47,6 +77,7 @@ namespace Kviz
         #region hlavni program
         static void Main(string[] args)
         {
+            Console.WriteLine();
             Console.WriteLine(" V Í T E J T E   U   L A K A T O Š K V Í Z U ");
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine();
@@ -86,8 +117,11 @@ namespace Kviz
             }
             // ----------------------------------
 
+            Console.Clear();
+            vypsatVysledky(vysledky);
+
             Console.WriteLine();
-            Console.WriteLine("Děkujeme za zahrání!");
+            Console.WriteLine(" Děkujeme za zahrání!");
 
             Console.CursorVisible = false;
             Console.ReadKey(true);
