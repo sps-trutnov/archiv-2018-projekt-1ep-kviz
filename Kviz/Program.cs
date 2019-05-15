@@ -31,7 +31,7 @@ namespace Kviz
         // funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         static void polozitOtazku(Otazka otazka)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(otazka.zneniOtazky);
             Console.ResetColor();
         }
@@ -41,19 +41,41 @@ namespace Kviz
            int moznost = 1;
             foreach (Odpoved odpoved in otazka.mozneOdpovedi)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(moznost + ") " + odpoved.zneniOdpovedi);
                 moznost = moznost + 1;
-
-                if (jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
-                {
-
-
-
-                    ziskaneSkore += 1;
-                }
+                Console.ResetColor();
             }
         }
+                               //int odkud, int kam
+        static int ziskatOdpoved()
+        {
+            Console.Write("Zadej cislo odpovedi: ");
+            string nakaPromenna = Console.ReadLine();
 
+            int CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+            do
+            {
+                
+
+            } while (CiselOdpoved <= 4);
+
+            return CiselOdpoved;
+        }
+        
+        static int JeSpravnaOdpoved(CiselOdpoved)
+        {
+            // udelat promenou na pravnou odpoved
+            // pokud zadá neco jinyho nez cislo uvedeny v otazkach, upozornit
+            // a zopakovat otazku
+            do
+            {
+                Console.WriteLine("Nenapsal jsi cislo odpovedi");
+
+            } while ();
+        }   
+        
     // -----------------------------------
 
 
@@ -68,50 +90,84 @@ namespace Kviz
 
     static void Main(string[] args)
         {
-            Console.WriteLine(" V Í T E J T E   U   L A K A T O Š K V Í Z U ");
-            Console.WriteLine("---------------------------------------------");
-            Console.WriteLine();
+            // priprava dat
+            Otazka ot;
+            ot.zneniOtazky = "Je toto funkční cvičná otázka?";
+            ot.mozneOdpovedi = new List<Odpoved>();
 
-            // ukol tymu Landspersky + Hnyk + Korcak
-            List<Otazka> otazky = nacistOtazky("kviz_data.txt");
-            zamichatOtazky(otazky);
-            // -------------------------------------
+            Odpoved od1;
+            od1.zneniOdpovedi = "První odpověď";
+            od1.spravnostOdpovedi = false;
 
-            int pocetLosovanychOtazek = Math.Min(10, otazky.Count);
-            uint ziskaneSkore = 0;
+            Odpoved od2;
+            od2.zneniOdpovedi = "Druhá odpověď";
+            od2.spravnostOdpovedi = true;
 
-            for(int i = 0; i < pocetLosovanychOtazek; i++)
-            {
-                // ukol tymu Karas + Knizek + Jindra
-                polozitOtazku(otazky[i]);
-                nabidnoutOdpovedi(otazky[i]);
+            Odpoved od3;
+            od3.zneniOdpovedi = "Tretí odpověď";
+            od3.spravnostOdpovedi = false;
 
-                if(jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
-                {
-                    ziskaneSkore += 1;
-                }
-                // ---------------------------------
-            }
+            ot.mozneOdpovedi.Add(od1);
+            ot.mozneOdpovedi.Add(od2);
+            ot.mozneOdpovedi.Add(od3);
 
-            // ukol tymu Lukas + Hepnar + Krejcar
-            List<Vysledek> vysledky = nacistVysledky("kviz_skore.txt");
-            bool umistilSe = jeDostatecneVysoke(ziskaneSkore, vysledky);
-            // ----------------------------------
+            // otestovani podprogramu (funkce)
+            polozitOtazku(ot);
+            nabidnoutOdpovedi(ot);
+            ziskatOdpoved();
 
-            // ukol tymu Gaspar + Janus + Janicek
-            if(umistilSe)
-            {
-                string prezdivka = ziskatPrezdivku();
-                zapsatDoVysledku(prezdivka, ziskaneSkore, vysledky);
-                zapsatNaDisk(vysledky);
-            }
-            // ----------------------------------
 
-            Console.WriteLine();
-            Console.WriteLine("Děkujeme za zahrání!");
 
-            Console.CursorVisible = false;
-            Console.ReadKey(true);
+            Console.ReadKey();
+
+            //// pozastaveni do stisku klavesy (abych videl vypis)
+            //Console.ReadKey();
+
+            //Console.WriteLine(" V Í T E J T E   U   L A K A T O Š K V Í Z U ");
+            //Console.WriteLine("---------------------------------------------");
+            //Console.WriteLine();
+
+            //// ukol tymu Landspersky + Hnyk + Korcak
+            //List<Otazka> otazky = nacistOtazky("kviz_data.txt");
+            //zamichatOtazky(otazky);
+
+            //// -------------------------------------
+
+            //int pocetLosovanychOtazek = Math.Min(10, otazky.Count);
+            //uint ziskaneSkore = 0;
+
+            //for (int i = 0; i < pocetLosovanychOtazek; i++)
+            //{
+            //    // ukol tymu Karas + Knizek + Jindra
+            //    polozitOtazku(otazky[i]);
+            //    nabidnoutOdpovedi(otazky[i]);
+
+            //    if (jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
+            //    {
+            //        ziskaneSkore += 1;
+            //    }
+            //    // ---------------------------------
+            //}
+
+            //// ukol tymu Lukas + Hepnar + Krejcar
+            //List<Vysledek> vysledky = nacistVysledky("kviz_skore.txt");
+            //bool umistilSe = jeDostatecneVysoke(ziskaneSkore, vysledky);
+            //// ----------------------------------
+
+            //// ukol tymu Gaspar + Janus + Janicek
+            //if (umistilSe)
+            //{
+            //    string prezdivka = ziskatPrezdivku();
+            //    zapsatDoVysledku(prezdivka, ziskaneSkore, vysledky);
+            //    zapsatNaDisk(vysledky);
+            //}
+            //// ----------------------------------
+
+            //Console.WriteLine();
+            //Console.WriteLine("Děkujeme za zahrání!");
+
+            //Console.CursorVisible = false;
+            //Console.ReadKey(true);
         }
     }
 }
