@@ -1,0 +1,10 @@
+﻿opravar	1000
+senkyr	9
+patrik	8
+kubos	7
+ondak	6
+vojta	5
+michal	4
+viktor	3
+martin	2
+slovak	0

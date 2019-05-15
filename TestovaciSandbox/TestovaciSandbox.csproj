@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1009CFEC-9012-45D1-812A-EE05359E946C}</ProjectGuid>
+    <ProjectGuid>{A9375A77-CFCA-46A8-B0FD-E27BE3B95028}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Kviz</RootNamespace>
-    <AssemblyName>Kviz</AssemblyName>
+    <RootNamespace>TestovaciSandbox</RootNamespace>
+    <AssemblyName>TestovaciSandbox</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kviz\ProjektKviz.csproj">
+      <Project>{1009cfec-9012-45d1-812a-ee05359e946c}</Project>
+      <Name>ProjektKviz</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
