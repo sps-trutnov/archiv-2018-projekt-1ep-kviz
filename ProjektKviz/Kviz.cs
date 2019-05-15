@@ -26,7 +26,7 @@ namespace ProjektKviz
         #endregion
 
         #region Ukazka pomocne funkce
-        public static void vypsatVysledky(List<Vysledek> vysledky)
+        public static void vypsatVysledky(List<Vysledek> vysledky, string prezdivkaHrace)
         {
             Console.WriteLine();
             Console.WriteLine(" Největší znalci Lakatoše ");
@@ -44,8 +44,13 @@ namespace ProjektKviz
                 string normovanaPrezdivka = prezdivka + vyplnPrezdivky;
                 string normovaneSkore = vyplnSkore + skore;
 
+                if (prezdivkaHrace != null && prezdivkaHrace == prezdivka)
+                    Console.ForegroundColor = ConsoleColor.Yellow;
 
                 Console.WriteLine(" " + normovanaPrezdivka + "   " + normovaneSkore);
+
+                if (prezdivkaHrace != null && prezdivkaHrace == prezdivka)
+                    Console.ForegroundColor = ConsoleColor.Gray;
             }
 
             Console.CursorVisible = false;
@@ -144,16 +149,18 @@ namespace ProjektKviz
             // ----------------------------------
 
             // ukol tymu (4) Gaspar + Janus + Janicek + Kabrt
+            string prezdivka = null;
+
             if (umistilSe)
             {
-                string prezdivka = ziskatPrezdivku();
+                prezdivka = ziskatPrezdivku();
                 zaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
                 zapsatVysledky(vysledky, "kviz_skore.txt");
             }
             // ----------------------------------
 
             Console.Clear();
-            vypsatVysledky(vysledky);
+            vypsatVysledky(vysledky, prezdivka);
 
             Console.WriteLine();
             Console.WriteLine(" Děkujeme za zahrání!");
