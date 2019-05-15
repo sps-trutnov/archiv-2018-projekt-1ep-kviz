@@ -12,8 +12,8 @@ namespace TestovaciSandbox
         static void Main(string[] args)
         {
             // priprava dat
-
             List<Kviz.Vysledek>mojeVysledky = new List<Kviz.Vysledek>();
+
             // vyzkouseni podprogramu
             Kviz.vypsatVysledky(mojeVysledky);
 
