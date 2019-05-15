@@ -52,9 +52,6 @@ namespace ProjektKviz
                 if (prezdivkaHrace != null && prezdivkaHrace == prezdivka)
                     Console.ForegroundColor = ConsoleColor.Gray;
             }
-
-            Console.CursorVisible = false;
-            Console.ReadKey();
         }
         #endregion
 
