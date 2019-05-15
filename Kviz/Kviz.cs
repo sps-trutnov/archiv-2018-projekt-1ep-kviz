@@ -67,7 +67,7 @@ namespace ProjektKviz
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         public static void polozitOtazku(Otazka otazka)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(otazka.zneniOtazky);
             Console.ResetColor();
         }
@@ -77,7 +77,7 @@ namespace ProjektKviz
             int moznost = 1;
             foreach (Odpoved odpoved in otazka.mozneOdpovedi)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine(moznost + ") " + odpoved.zneniOdpovedi);
                 moznost = moznost + 1;
                 Console.ResetColor();
@@ -90,26 +90,27 @@ namespace ProjektKviz
 
             do
             {
+                // Dokud nezvoli odpoved 1-4, nepusti ho to dal
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write("Zadej cislo odpovedi: ");
+                Console.ResetColor();
+
                 string nakaPromenna = Console.ReadLine();
 
                 CiselOdpoved = Convert.ToInt32(nakaPromenna);
 
-            } while (CiselOdpoved <= 4 );
+            } while (CiselOdpoved <= 4 && CiselOdpoved > 0);
 
             return CiselOdpoved;
         }
 
         public static bool jeSpravnaOdpoved(object p, Otazka otazka)
         {
-            // udelat promenou na pravnou odpoved
-            // pokud zadá neco jinyho nez cislo uvedeny v otazkach, upozornit
-            // a zopakovat otazku
-            do
-            {
-                Console.WriteLine("Nenapsal jsi cislo odpovedi");
+            // udelat funkci na pravdivou odpoved
 
-            } while ();
+            if ()
+            
         }
         #endregion
 
