@@ -7,7 +7,7 @@ namespace Kviz
 {
     class Program
     {
-        #region pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class
+        #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class
         class Odpoved
         {
             public string zneniOdpovedi { get; set; }
@@ -25,7 +25,7 @@ namespace Kviz
         }
         #endregion
 
-        #region ukazka pomocne funkce
+        #region Ukazka pomocne funkce
         static void vypsatVysledky(List<Vysledek> vysledky)
         {
             Console.WriteLine();
@@ -53,23 +53,23 @@ namespace Kviz
         }
         #endregion
 
-        #region funkce tymu (1) Landspersky + Hnyk + Korcak
+        #region Funkce tymu (1) Landspersky + Hnyk + Korcak
 
         #endregion
         
-        #region funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
+        #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
         #endregion
         
-        #region funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
+        #region Funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
         #endregion
 
-        #region funkce tymu (4) Gaspar + Janus + Janicek
+        #region Funkce tymu (4) Gaspar + Janus + Janicek
 
         #endregion
 
-        #region hlavni program
+        #region Hlavni program
         static void Main(string[] args)
         {
             Console.WriteLine();
