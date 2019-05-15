@@ -1,5 +1,5 @@
 ﻿using System;
-using Kviz;
+using ProjektKviz;
 
 namespace TestovaciSandbox
 {
@@ -7,6 +7,7 @@ namespace TestovaciSandbox
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

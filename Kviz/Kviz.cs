@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
-namespace Kviz
+namespace ProjektKviz
 {
-    class Program
+    public class Kviz
     {
-        #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class
-        class Odpoved
+        #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class)
+        public class Odpoved
         {
             public string zneniOdpovedi { get; set; }
             public bool spravnostOdpovedi { get; set; }
         }
-        class Otazka
+        public class Otazka
         {
             public string zneniOtazky { get; set; }
             public List<Odpoved> mozneOdpovedi { get; set; }
         }
-        class Vysledek
+        public class Vysledek
         {
             public string prezdivka { get; set; }
             public uint skore { get; set; }
@@ -26,7 +25,7 @@ namespace Kviz
         #endregion
 
         #region Ukazka pomocne funkce
-        static void vypsatVysledky(List<Vysledek> vysledky)
+        public static void vypsatVysledky(List<Vysledek> vysledky)
         {
             Console.WriteLine();
             Console.WriteLine(" Největší znalci Lakatoše ");
@@ -56,11 +55,11 @@ namespace Kviz
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
 
         #endregion
-        
+
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
         #endregion
-        
+
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
         #endregion
