@@ -6,7 +6,7 @@ using ProjektKviz;
 
 namespace TestovaciSandbox
 {
-    class Program
+    class Sandbox
     {
         // prostor pro testovani pdoprogramu
         static void Main(string[] args)
