@@ -86,16 +86,16 @@ namespace ProjektKviz
 
         public static object ziskatOdpoved()
         {
-            Console.Write("Zadej cislo odpovedi: ");
-            string nakaPromenna = Console.ReadLine();
-
-            int CiselOdpoved = Convert.ToInt32(nakaPromenna);
+            int CiselOdpoved;
 
             do
             {
-                
+                Console.Write("Zadej cislo odpovedi: ");
+                string nakaPromenna = Console.ReadLine();
 
-            } while (CiselOdpoved <= 4);
+                CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+            } while (CiselOdpoved <= 4 );
 
             return CiselOdpoved;
         }
