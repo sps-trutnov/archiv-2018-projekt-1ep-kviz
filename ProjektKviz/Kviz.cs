@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ProjektKviz
 {
@@ -53,19 +54,59 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
-
+        public static List<Otazka> nacistOtazky(string cestaSouboru)
+        {
+            throw new NotImplementedException();
+        }
+        public static void zamichatOtazky(List<Otazka> otazky)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
-
+        public static bool jeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
+        {
+            throw new NotImplementedException();
+        }
+        public static void nabidnoutOdpovedi(Otazka otazka)
+        {
+            throw new NotImplementedException();
+        }
+        public static void polozitOtazku(Otazka otazka)
+        {
+            throw new NotImplementedException();
+        }
+        public static int ziskatOdpoved()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
-        #region Funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
-
+        #region Funkce tymu (3) Lukas + Hepnar + Krejcar
+        public static bool jeDostatecneVysoke(uint ziskaneSkore, List<Vysledek> vysledky)
+        {
+            throw new NotImplementedException();
+        }
+        public static List<Vysledek> nacistVysledky(string cestaSouboru)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
-        #region Funkce tymu (4) Gaspar + Janus + Janicek
-
+        #region Funkce tymu (4) Gaspar + Janus + Janicek + Kabrt
+        private static void zapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
+        {
+            throw new NotImplementedException();
+        }
+        private static void zaraditDoVysledku(string prezdivka, uint ziskaneSkore, List<Vysledek> vysledky)
+        {
+            throw new NotImplementedException();
+        }
+        private static string ziskatPrezdivku()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Hlavni program
@@ -76,7 +117,7 @@ namespace ProjektKviz
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine();
 
-            // ukol tymu Landspersky + Hnyk + Korcak
+            // ukol tymu (1) Landspersky + Hnyk + Korcak
             List<Otazka> otazky = nacistOtazky("kviz_data.txt");
             zamichatOtazky(otazky);
             // -------------------------------------
@@ -86,7 +127,7 @@ namespace ProjektKviz
 
             for (int i = 0; i < pocetLosovanychOtazek; i++)
             {
-                // ukol tymu Karas + Knizek + Jindra
+                // ukol tymu (2) Karas + Knizek + Jindra
                 polozitOtazku(otazky[i]);
                 nabidnoutOdpovedi(otazky[i]);
 
@@ -97,12 +138,12 @@ namespace ProjektKviz
                 // ---------------------------------
             }
 
-            // ukol tymu Lukas + Hepnar + Krejcar
+            // ukol tymu (3) Lukas + Hepnar + Krejcar
             List<Vysledek> vysledky = nacistVysledky("kviz_skore.txt");
             bool umistilSe = jeDostatecneVysoke(ziskaneSkore, vysledky);
             // ----------------------------------
 
-            // ukol tymu Gaspar + Janus + Janicek
+            // ukol tymu (4) Gaspar + Janus + Janicek + Kabrt
             if (umistilSe)
             {
                 string prezdivka = ziskatPrezdivku();
