@@ -65,21 +65,51 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
-        public static bool jeSpravnaOdpoved(object p, Otazka otazka)
-        {
-            throw new NotImplementedException();
-        }
-        public static void nabidnoutOdpovedi(Otazka otazka)
-        {
-            throw new NotImplementedException();
-        }
         public static void polozitOtazku(Otazka otazka)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(otazka.zneniOtazky);
+            Console.ResetColor();
         }
+
+        public static void nabidnoutOdpovedi(Otazka otazka)
+        {
+            int moznost = 1;
+            foreach (Odpoved odpoved in otazka.mozneOdpovedi)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(moznost + ") " + odpoved.zneniOdpovedi);
+                moznost = moznost + 1;
+                Console.ResetColor();
+            }
+        }
+
         public static object ziskatOdpoved()
         {
-            throw new NotImplementedException();
+            Console.Write("Zadej cislo odpovedi: ");
+            string nakaPromenna = Console.ReadLine();
+
+            int CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+            do
+            {
+                
+
+            } while (CiselOdpoved <= 4);
+
+            return CiselOdpoved;
+        }
+
+        public static bool jeSpravnaOdpoved(object p, Otazka otazka)
+        {
+            // udelat promenou na pravnou odpoved
+            // pokud zadá neco jinyho nez cislo uvedeny v otazkach, upozornit
+            // a zopakovat otazku
+            do
+            {
+                Console.WriteLine("Nenapsal jsi cislo odpovedi");
+
+            } while ();
         }
         #endregion
 
