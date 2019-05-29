@@ -160,6 +160,10 @@ namespace ProjektKviz
             vypsatVysledky(vysledky, prezdivka);
 
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" (C) Ikonu vytvořil Freepik z webu www.flaticon.com");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
             Console.WriteLine(" Děkujeme za zahrání!");
 
             Console.CursorVisible = false;
