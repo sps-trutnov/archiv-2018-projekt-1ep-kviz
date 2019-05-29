@@ -107,9 +107,11 @@ namespace ProjektKviz
 
         public static bool jeSpravnaOdpoved(object p, Otazka otazka)
         {
-            // udelat funkci na pravdivou odpoved
+            // udelat funkci na pravdivost odpovedi
 
-            if ()
+
+
+            if ( != )
             
         }
         #endregion
