@@ -12,7 +12,7 @@ namespace TestovaciSandbox
         static void Main(string[] args)
         {
             // priprava dat
-            List<Kviz.Vysledek>testovaciVysledky = new List<Kviz.Vysledek>();
+            List<Kviz.Vysledek> testovaciVysledky = new List<Kviz.Vysledek>();
 
             // vyzkouseni podprogramu
             Kviz.VypsatVysledky(testovaciVysledky, "Hráč");

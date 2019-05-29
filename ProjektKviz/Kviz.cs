@@ -55,11 +55,11 @@ namespace ProjektKviz
         }
         public static void ZamichatOtazkamOdpovedi(List<Otazka> otazky)
         {
-            foreach(Otazka otazka in otazky)
+            foreach (Otazka otazka in otazky)
             {
                 Random nahoda = new Random();
 
-                for(int i = 0; i < otazka.MozneOdpovedi.Count; i++)
+                for (int i = 0; i < otazka.MozneOdpovedi.Count; i++)
                 {
                     int j = nahoda.Next(otazka.MozneOdpovedi.Count);
 
