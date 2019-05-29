@@ -105,14 +105,17 @@ namespace ProjektKviz
             return CiselOdpoved;
         }
 
-        public static bool jeSpravnaOdpoved(object p, Otazka otazka)
+        public static bool jeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
             // udelat funkci na pravdivost odpovedi
+            // najit spravnej radek (kde je *) 
 
+            bool jeSpravna = otazka.mozneOdpovedi[cisloOdpovedi - 1].spravnostOdpovedi;
 
-
-            if ( != )
-            
+            if (jeSpravna == true)
+                return true;
+            else
+                return false;
         }
         #endregion
 
