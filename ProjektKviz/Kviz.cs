@@ -125,7 +125,6 @@ namespace ProjektKviz
             Console.WriteLine(otazka.ZneniOtazky);
             Console.ResetColor();
         }
-
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
             int moznost = 1;
@@ -137,7 +136,6 @@ namespace ProjektKviz
                 Console.ResetColor();
             }
         }
-
         public static int ZiskatOdpoved()
         {
             int CiselOdpoved;
@@ -158,7 +156,6 @@ namespace ProjektKviz
 
             return CiselOdpoved;
         }
-
         public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
             // udelat funkci na pravdivost odpovedi
