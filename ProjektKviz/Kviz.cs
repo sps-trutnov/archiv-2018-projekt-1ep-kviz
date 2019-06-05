@@ -85,19 +85,55 @@ namespace ProjektKviz
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         public static void PolozitOtazku(Otazka otazka)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(otazka.ZneniOtazky);
+            Console.ResetColor();
         }
+
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
-            throw new NotImplementedException();
+            int moznost = 1;
+            foreach (Odpoved odpoved in otazka.MozneOdpovedi)
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(moznost + ") " + odpoved.ZneniOdpovedi);
+                moznost = moznost + 1;
+                Console.ResetColor();
+            }
         }
+
         public static int ZiskatOdpoved()
         {
-            throw new NotImplementedException();
+            int CiselOdpoved;
+
+            do
+            {
+                // Dokud nezvoli odpoved 1-4, nepusti ho to dal
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("Zadej cislo odpovedi: ");
+                Console.ResetColor();
+
+                string nakaPromenna = Console.ReadLine();
+
+                CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+            } while (CiselOdpoved <= 4 && CiselOdpoved > 0);
+
+            return CiselOdpoved;
         }
+
         public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
-            throw new NotImplementedException();
+            // udelat funkci na pravdivost odpovedi
+            // najit spravnej radek (kde je *) 
+
+            bool jeSpravna = otazka.MozneOdpovedi[cisloOdpovedi - 1].SpravnostOdpovedi;
+
+            if (jeSpravna == true)
+                return true;
+            else
+                return false;
         }
         #endregion
 
