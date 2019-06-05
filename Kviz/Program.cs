@@ -54,13 +54,55 @@ namespace Kviz
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
+        static List<Otazka> nacistOtazky(string jmenoSouboruSOtazkami)
+        {
+            Console.WriteLine("Vypisuji soubor:");
+            Otazka o  = new Otazka();
+
+
+
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
+            {
+                string s;
+                Otazka O = new Otazka(); // otazka se vytvari "zbytecne"
+                Odpoved d;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                    if (s.EndsWith("?"))
+                    {
+                        o = new Otazka();
+                        o.zneniOtazky = s;
+                        o.mozneOdpovedi = new List<Odpoved>();
+
+                    }
+                    else if (s.EndsWith("*"))
+                    {
+                        d = new Odpoved();
+                        d.zneniOdpovedi = s;
+                        d.spravnostOdpovedi = true;
+                        o.mozneOdpovedi.Add(d);
+                    }
+                    else
+                    {
+                        d = new Odpoved();
+                        d.zneniOdpovedi = s;
+                        d.spravnostOdpovedi = false;
+                        o.mozneOdpovedi.Add(d);
+                    }
+                }
+            }
+            Console.ReadKey();
+
+            return new List<Otazka>();
+        }
 
         #endregion
-        
+
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
 
         #endregion
-        
+
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar + Kabrt
 
         #endregion
