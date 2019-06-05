@@ -84,7 +84,7 @@ namespace ProjektKviz
             }
         }
 
-        public static object ziskatOdpoved()
+        public static int ziskatOdpoved()
         {
             int CiselOdpoved;
 
