@@ -10,23 +10,23 @@ namespace ProjektKviz
         #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class)
         public class Odpoved
         {
-            public string zneniOdpovedi { get; set; }
-            public bool spravnostOdpovedi { get; set; }
+            public string ZneniOdpovedi { get; set; }
+            public bool SpravnostOdpovedi { get; set; }
         }
         public class Otazka
         {
-            public string zneniOtazky { get; set; }
-            public List<Odpoved> mozneOdpovedi { get; set; }
+            public string ZneniOtazky { get; set; }
+            public List<Odpoved> MozneOdpovedi { get; set; }
         }
         public class Vysledek
         {
-            public string prezdivka { get; set; }
-            public uint skore { get; set; }
+            public string Prezdivka { get; set; }
+            public uint Skore { get; set; }
         }
         #endregion
 
         #region Ukazka pomocne funkce
-        public static void vypsatVysledky(List<Vysledek> vysledky, string prezdivkaHrace)
+        public static void VypsatVysledky(List<Vysledek> vysledky, string prezdivkaHrace)
         {
             Console.WriteLine();
             Console.WriteLine(" Největší znalci Lakatoše ");
@@ -35,8 +35,8 @@ namespace ProjektKviz
 
             foreach (Vysledek vysledek in vysledky)
             {
-                string prezdivka = vysledek.prezdivka;
-                string skore = vysledek.skore.ToString();
+                string prezdivka = vysledek.Prezdivka;
+                string skore = vysledek.Skore.ToString();
 
                 string vyplnPrezdivky = Enumerable.Repeat<string>(" ", 15 + 1 - prezdivka.Length).Aggregate((skladanka, dalsi) => skladanka + dalsi);
                 string vyplnSkore = Enumerable.Repeat<string>(" ", 1000.ToString().Length + 1 - skore.ToString().Length).Aggregate<string>((skladanka, dalsi) => skladanka + dalsi);
@@ -53,44 +53,60 @@ namespace ProjektKviz
                     Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
+        public static void ZamichatOtazkamOdpovedi(List<Otazka> otazky)
+        {
+            foreach (Otazka otazka in otazky)
+            {
+                Random nahoda = new Random();
+
+                for (int i = 0; i < otazka.MozneOdpovedi.Count; i++)
+                {
+                    int j = nahoda.Next(otazka.MozneOdpovedi.Count);
+
+                    Odpoved o = otazka.MozneOdpovedi[i];
+                    otazka.MozneOdpovedi[i] = otazka.MozneOdpovedi[j];
+                    otazka.MozneOdpovedi[j] = o;
+                }
+            }
+        }
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
-        public static List<Otazka> nacistOtazky(string cestaSouboru)
+        public static List<Otazka> NacistOtazky(string jmenoSouboru)
         {
             throw new NotImplementedException();
         }
-        public static void zamichatOtazky(List<Otazka> otazky)
+        public static void ZamichatOtazky(List<Otazka> otazky)
         {
             throw new NotImplementedException();
         }
         #endregion
 
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
-        public static bool jeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
+        public static void PolozitOtazku(Otazka otazka)
         {
             throw new NotImplementedException();
         }
-        public static void nabidnoutOdpovedi(Otazka otazka)
+        public static void NabidnoutOdpovedi(Otazka otazka)
         {
             throw new NotImplementedException();
         }
-        public static void polozitOtazku(Otazka otazka)
+        public static int ZiskatOdpoved()
         {
             throw new NotImplementedException();
         }
-        public static int ziskatOdpoved()
+        public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
             throw new NotImplementedException();
         }
         #endregion
 
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar
-        public static bool jeDostatecneVysoke(uint ziskaneSkore, List<Vysledek> vysledky)
+        public static List<Vysledek> NacistVysledky(string cestaSouboru)
         {
             throw new NotImplementedException();
         }
-        public static List<Vysledek> nacistVysledky(string cestaSouboru)
+        public static bool JeDostatecneVysoke(uint skore, List<Vysledek> vysledky)
         {
             throw new NotImplementedException();
         }
@@ -130,9 +146,10 @@ namespace ProjektKviz
             Console.WriteLine();
 
             // ukol tymu (1) Landspersky + Hnyk + Korcak
-            List<Otazka> otazky = nacistOtazky("kviz_data.txt");
-            zamichatOtazky(otazky);
+            List<Otazka> otazky = NacistOtazky("kviz_data.txt");
+            ZamichatOtazky(otazky);
             // -------------------------------------
+            ZamichatOtazkamOdpovedi(otazky);
 
             int pocetLosovanychOtazek = Math.Min(10, otazky.Count);
             uint ziskaneSkore = 0;
@@ -140,10 +157,10 @@ namespace ProjektKviz
             for (int i = 0; i < pocetLosovanychOtazek; i++)
             {
                 // ukol tymu (2) Karas + Knizek + Jindra
-                polozitOtazku(otazky[i]);
-                nabidnoutOdpovedi(otazky[i]);
+                PolozitOtazku(otazky[i]);
+                NabidnoutOdpovedi(otazky[i]);
 
-                if (jeSpravnaOdpoved(ziskatOdpoved(), otazky[i]))
+                if (JeSpravnaOdpoved(ZiskatOdpoved(), otazky[i]))
                 {
                     ziskaneSkore += 1;
                 }
@@ -151,8 +168,8 @@ namespace ProjektKviz
             }
 
             // ukol tymu (3) Lukas + Hepnar + Krejcar
-            List<Vysledek> vysledky = nacistVysledky("kviz_skore.txt");
-            bool umistilSe = jeDostatecneVysoke(ziskaneSkore, vysledky);
+            List<Vysledek> vysledky = NacistVysledky("kviz_skore.txt");
+            bool umistilSe = JeDostatecneVysoke(ziskaneSkore, vysledky);
             // ----------------------------------
 
             // ukol tymu (4) Gaspar + Janus + Janicek + Kabrt
@@ -160,14 +177,14 @@ namespace ProjektKviz
 
             if (umistilSe)
             {
-                prezdivka = ziskatPrezdivku();
-                zaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
-                zapsatVysledky(vysledky, "kviz_skore.txt");
+                prezdivka = ZiskatPrezdivku();
+                ZaraditDoVysledku(prezdivka, ziskaneSkore, vysledky);
+                ZapsatVysledky(vysledky, "kviz_skore.txt");
             }
             // ----------------------------------
 
             Console.Clear();
-            vypsatVysledky(vysledky, prezdivka);
+            VypsatVysledky(vysledky, prezdivka);
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;

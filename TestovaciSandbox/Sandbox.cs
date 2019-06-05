@@ -12,10 +12,10 @@ namespace TestovaciSandbox
         static void Main(string[] args)
         {
             // priprava dat
-            List<Kviz.Vysledek>testovaciVysledky = new List<Kviz.Vysledek>();
+            List<Kviz.Vysledek> testovaciVysledky = new List<Kviz.Vysledek>();
 
             // vyzkouseni podprogramu
-            Kviz.vypsatVysledky(testovaciVysledky, "Hráč");
+            Kviz.VypsatVysledky(testovaciVysledky, "Hráč");
 
             // cekani na stisk klavesy
             Console.CursorVisible = false;
