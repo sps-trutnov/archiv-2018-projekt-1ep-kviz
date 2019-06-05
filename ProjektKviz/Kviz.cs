@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -72,9 +72,45 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
-        public static List<Otazka> NacistOtazky(string jmenoSouboru)
+        static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Vypisuji soubor:");
+            Otazka o  = new Otazka();
+
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
+            {
+                string s;
+                Otazka O = new Otazka(); // otazka se vytvari "zbytecne"
+                Odpoved d;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                    if (s.EndsWith("?"))
+                    {
+                        o = new Otazka();
+                        o.ZneniOtazky = s;
+                        o.MozneOdpovedi = new List<Odpoved>();
+
+                    }
+                    else if (s.EndsWith("*"))
+                    {
+                        d = new Odpoved();
+                        d.ZneniOdpovedi = s;
+                        d.SpravnostOdpovedi = true;
+                        o.MozneOdpovedi.Add(d);
+                    }
+                    else
+                    {
+                        d = new Odpoved();
+                        d.ZneniOdpovedi = s;
+                        d.SpravnostOdpovedi = false;
+                        o.MozneOdpovedi.Add(d);
+                    }
+                }
+            }
+            Console.ReadKey();
+
+            return new List<Otazka>();
         }
         public static void ZamichatOtazky(List<Otazka> otazky)
         {

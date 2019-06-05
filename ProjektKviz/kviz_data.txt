@@ -1,10 +1,10 @@
-﻿?Kterou součástku opravář Lakatoše nenasadil?
+﻿Kterou součástku opravář Lakatoše nenasadil?
  trubku
  alternátor
  sání
-!očko
-?Kam odjel opravář Lakatoše?
+ očko*
+Kam odjel opravář Lakatoše?
  na Slovensko
  na Moravu
-!do pyče
+ do pyče*
  do servisu
