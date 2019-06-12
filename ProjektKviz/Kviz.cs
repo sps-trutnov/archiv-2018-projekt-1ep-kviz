@@ -105,7 +105,12 @@ namespace ProjektKviz
 
         public static List<Vysledek> NacistVysledky(string jmenoSouboruSVysledky)
         {
-            NacistVysledky = File.ReadAllLines(jmenoSouboruSVysledky);
+            string[] radky;
+            radky = File.ReadAllLines(jmenoSouboruSVysledky);
+
+            Vysledek v = new Vysledek();
+            v.Prezdivka = 
+
 
 
         }
