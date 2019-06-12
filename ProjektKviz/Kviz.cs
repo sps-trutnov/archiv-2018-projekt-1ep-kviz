@@ -123,11 +123,20 @@ namespace ProjektKviz
 
         public static void zaraditDoVysledku(string prezdivka, uint ziskaneSkore, List<Vysledek> vysledky)
         {
+            Vysledek v = new Vysledek();
+            v.Prezdivka = prezdivka;
+            v.Skore = ziskaneSkore;
 
-            vysledky.Count
+            int x = 0;
+            if (vysledky[x].Skore > ziskaneSkore)
+                x = x + 1;
+            else
+            {
+                vysledky.Insert(x, v);
+            }
 
-            vysledky[pozice].zmenitSkore(skore);
-            vysledky[pozice].zmenitPrezdivku(prezdivka);
+            int p = vysledky.Count();
+            vysledky.RemoveAt(p - 1);
 
         }
 
