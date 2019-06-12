@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -119,7 +119,36 @@ namespace ProjektKviz
 
         public static void ZamichatOtazky(List<Otazka> otazky)
         {
-            throw new NotImplementedException();
+            {
+                Random nahoda = new Random();
+
+                for (int i = 0; i < otazky.Count; i++)
+                {
+                    int j = nahoda.Next(otazky.Count);
+
+                    Otazka o = otazky[i];
+                    otazky[i] = otazky[j];
+                    otazky[j] = o;
+
+
+                }
+            }
+        }
+        public static void ZamichatOtazkamOdpovedi(List<Otazka> otazky)
+        {
+            foreach (Otazka otazka in otazky)
+            {
+                Random nahoda = new Random();
+
+                for (int i = 0; i < otazka.MozneOdpovedi.Count; i++) 
+                {
+                    int j = nahoda.Next(otazka.MozneOdpovedi.Count);
+
+                    Odpoved d = otazka.MozneOdpovedi[i];
+                    otazka.MozneOdpovedi[i] = otazka.MozneOdpovedi[j];
+                    otazka.MozneOdpovedi[j] = d;
+                }
+            }
         }
         #endregion
 
