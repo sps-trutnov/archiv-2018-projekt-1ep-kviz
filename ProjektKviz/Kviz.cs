@@ -143,10 +143,8 @@ namespace ProjektKviz
             List<Vysledek> seznamVysledku = new List<Vysledek>();
             string[] radkySouboru = File.ReadAllLines(cestaSouboru); //pole[]
 
-
             int i = 0;
             
-
             do
             {
                 string aktualniRadek = radkySouboru[i];
@@ -155,8 +153,8 @@ namespace ProjektKviz
                 string prezdivka = aktualniRadek.Substring(0, mezeravRadku);       // bere casti radku
 
                 string skore = aktualniRadek.Substring(mezeravRadku + 1);
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vysledek V;
                 V = new Vysledek();
                 V.Prezdivka = prezdivka;
@@ -173,7 +171,6 @@ namespace ProjektKviz
         }
         public static bool JeDostatecneVysoke(uint skore, List<Vysledek> vysledky)
         {
-
 
             throw new NotImplementedException();
         }
