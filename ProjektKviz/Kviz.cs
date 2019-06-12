@@ -75,7 +75,7 @@ namespace ProjektKviz
         static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
             Console.WriteLine("Vypisuji soubor:");
-            Otazka o  = new Otazka();
+            Otazka o = new Otazka();
 
             using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
             {
