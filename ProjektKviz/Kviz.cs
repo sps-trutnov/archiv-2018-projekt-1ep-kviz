@@ -103,11 +103,9 @@ namespace ProjektKviz
 
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar
 
-		public static List<Vysledek> NacistVysledky(string jmenoSouboruSVysledky)
+        public static List<Vysledek> NacistVysledky(string jmenoSouboruSVysledky)
         {
-            nacistVysledky = Console.ReadLine(jmenoSouboruSVysledky);
-
-
+            NacistVysledky = File.ReadAllLines(jmenoSouboruSVysledky);
 
 
         }
@@ -117,15 +115,12 @@ namespace ProjektKviz
             int x;
             x = vysledky.Count;
 
-            int minSkoreVTabulceVysledku = (int)vysledky[x - 1].skore;
+            int minSkoreVTabulceVysledku = (int)vysledky[x - 1].Skore;
 
-            vysledky.ConsoleReadline
-
-
-            if minSkoreVTabulceVysledku < skore do
-
-
-
+            if (minSkoreVTabulceVysledku < skore)
+                return true;
+            else
+                return false;
         }
         #endregion
 
