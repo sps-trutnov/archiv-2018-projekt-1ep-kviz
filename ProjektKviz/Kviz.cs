@@ -140,10 +140,41 @@ namespace ProjektKviz
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar
         public static List<Vysledek> NacistVysledky(string cestaSouboru)
         {
-            throw new NotImplementedException();
+            List<Vysledek> seznamVysledku = new List<Vysledek>();
+            string[] radkySouboru = File.ReadAllLines(cestaSouboru); //pole[]
+
+
+            int i = 0;
+            
+
+            do
+            {
+                string aktualniRadek = radkySouboru[i];
+                int mezeravRadku = aktualniRadek.IndexOf(' ');
+
+                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);       // bere casti radku
+
+                string skore = aktualniRadek.Substring(mezeravRadku + 1);
+
+
+                Vysledek V;
+                V = new Vysledek();
+                V.Prezdivka = prezdivka;
+                V.Skore = Convert.ToUInt32(skore);
+
+                seznamVysledku.Add(V);
+                i = i + 1;
+
+            } while (i < radkySouboru.Length);
+
+            return seznamVysledku;
+
+           // throw new NotImplementedException();
         }
         public static bool JeDostatecneVysoke(uint skore, List<Vysledek> vysledky)
         {
+
+
             throw new NotImplementedException();
         }
         #endregion
@@ -151,6 +182,9 @@ namespace ProjektKviz
         #region Funkce tymu (4) Gaspar + Janus + Janicek + Kabrt
         public static string ZiskatPrezdivku()
         {
+            //Console.Write("Zapis prezdivku:  ");
+            //string Prezdivka = Console.ReadLine();
+
             throw new NotImplementedException();
         }
         public static void ZaraditDoVysledku(string prezdivka, uint skore, List<Vysledek> vysledky)
