@@ -182,15 +182,34 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (4) Gaspar + Janus + Janicek + Kabrt
-        public static string ZiskatPrezdivku()
+        public static string ziskatPrezdivku()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Zadejte přezdívku: ");
+            string prezdivka = Console.ReadLine();
+
+            return prezdivka;
         }
-        public static void ZaraditDoVysledku(string prezdivka, uint skore, List<Vysledek> vysledky)
+
+        public static void zaraditDoVysledku(string prezdivka, uint ziskaneSkore, List<Vysledek> vysledky)
         {
-            throw new NotImplementedException();
+            Vysledek v = new Vysledek();
+            v.Prezdivka = prezdivka;
+            v.Skore = ziskaneSkore;
+
+            int x = 0;
+            if (vysledky[x].Skore > ziskaneSkore)
+                x = x + 1;
+            else
+            {
+                vysledky.Insert(x, v);
+            }
+
+            int p = vysledky.Count();
+            vysledky.RemoveAt(p - 1);
+
         }
-        public static void ZapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
+
+        public static void zapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
         {
             throw new NotImplementedException();
         }
