@@ -72,7 +72,7 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
-        static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
+        public static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
             Console.WriteLine("Vypisuji soubor:");
             Otazka o = new Otazka();
@@ -114,7 +114,16 @@ namespace ProjektKviz
         }
         public static void ZamichatOtazky(List<Otazka> otazky)
         {
-            throw new NotImplementedException();
+            Random nahoda = new Random();
+
+            for (int i = 0; i < otazky.Count; i++)
+            {
+                int j = nahoda.Next(otazky.Count);
+
+                Otazka o = otazky[i];
+                otazky[i] = otazky[j];
+                otazky[j] = o;
+            }
         }
         #endregion
 
