@@ -179,23 +179,21 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar
-        public static List<Vysledek> NacistVysledky(string jmenoSouboruSVysledky)
+        public static List<Vysledek> NacistVysledky(string cestaSouboru)
         {
             List<Vysledek> seznamVysledku = new List<Vysledek>();
-            string[] radkySouboru = File.ReadAllLines(jmenoSouboruSVysledky); //pole[]
+            string[] radkySouboru = File.ReadAllLines(cestaSouboru);
 
             int i = 0;
-            
+
             do
             {
                 string aktualniRadek = radkySouboru[i];
                 int mezeravRadku = aktualniRadek.IndexOf(' ');
 
-                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);       // vyrve cast radku
-
+                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);
                 string skore = aktualniRadek.Substring(mezeravRadku + 1);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 Vysledek V;
                 V = new Vysledek();
                 V.Prezdivka = prezdivka;
@@ -207,8 +205,6 @@ namespace ProjektKviz
             } while (i < radkySouboru.Length);
 
             return seznamVysledku;
-
-           // throw new NotImplementedException();
         }
         public static bool JeDostatecneVysoke(uint skore, List<Vysledek> vysledky)
         {
