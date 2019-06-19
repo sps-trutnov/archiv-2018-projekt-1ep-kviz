@@ -168,7 +168,6 @@ namespace ProjektKviz
         public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
             // udelat funkci na pravdivost odpovedi
-            // najit spravnej radek (kde je *) 
 
             bool jeSpravna = otazka.MozneOdpovedi[cisloOdpovedi - 1].SpravnostOdpovedi;
 
@@ -183,7 +182,7 @@ namespace ProjektKviz
         public static List<Vysledek> NacistVysledky(string jmenoSouboruSVysledky)
         {
             List<Vysledek> seznamVysledku = new List<Vysledek>();
-            string[] radkySouboru = File.ReadAllLines(cestaSouboru); //pole[]
+            string[] radkySouboru = File.ReadAllLines(jmenoSouboruSVysledky); //pole[]
 
             int i = 0;
             
@@ -192,7 +191,7 @@ namespace ProjektKviz
                 string aktualniRadek = radkySouboru[i];
                 int mezeravRadku = aktualniRadek.IndexOf(' ');
 
-                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);       // bere casti radku
+                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);       // vyrve cast radku
 
                 string skore = aktualniRadek.Substring(mezeravRadku + 1);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
