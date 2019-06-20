@@ -11,7 +11,6 @@ namespace TestovaciSandbox
         // prostor pro testovani podprogramu
         static void Main(string[] args)
         {
-
             // priprava dat
             List<Kviz.Vysledek> testovaciVysledky = new List<Kviz.Vysledek>();
 
