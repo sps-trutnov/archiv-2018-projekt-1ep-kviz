@@ -45,7 +45,7 @@ namespace ProjektKviz
                 string normovaneSkore = vyplnSkore + skore;
 
                 if (prezdivkaHrace != null && prezdivkaHrace == prezdivka)
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Magenta;
 
                 Console.WriteLine(" " + normovanaPrezdivka + "   " + normovaneSkore);
 
@@ -96,7 +96,7 @@ namespace ProjektKviz
                     else if (s.EndsWith("*"))
                     {
                         d = new Odpoved();
-                        d.ZneniOdpovedi = s.Substring(0, s.Length - 1); 
+                        d.ZneniOdpovedi = s.Substring(0, s.Length - 1);
                         d.SpravnostOdpovedi = true;
                         o.MozneOdpovedi.Add(d);
                         vysledek.Add(o);
@@ -219,7 +219,7 @@ namespace ProjektKviz
 
             int minSkoreVTabulceVysledku = (int)vysledky[x - 1].Skore;
 
-            if (minSkoreVTabulceVysledku < skore)
+            if (minSkoreVTabulceVysledku <= skore)
                 return true;
             else
                 return false;
@@ -240,18 +240,18 @@ namespace ProjektKviz
             v.Prezdivka = prezdivka;
             v.Skore = ziskaneSkore;
 
-            int p = vysledky.Count();
             int x = 0;
             do
-                if (vysledky[x].Skore > ziskaneSkore)
-                    x = x + 1;
-                else
+            {
+                if(vysledky[x].Skore <= ziskaneSkore)
                 {
                     vysledky.Insert(x, v);
+                    vysledky.RemoveAt(vysledky.Count - 1);
                 }
-            while (vysledky[x].Skore > ziskaneSkore);
-            vysledky.RemoveAt(p - 1);
 
+                x = x + 1;
+            }
+            while (x < vysledky.Count);
         }
         public static void ZapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
         {
