@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -72,16 +72,14 @@ namespace ProjektKviz
         #endregion
 
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
-        public static List<Otazka> NacistOtazky(string jmenoSouboru)
+        public static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
             Console.WriteLine("Vypisuji soubor:");
 
             List<Otazka> vysledek = new List<Otazka>();
             Otazka o = new Otazka();
 
-
-
-            using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboru))
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
             {
                 string s;
                 Odpoved d;
@@ -117,9 +115,6 @@ namespace ProjektKviz
 
             return vysledek;
         }
-
-
-
         public static void ZamichatOtazky(List<Otazka> otazky)
         {
             Random nahoda = new Random();
@@ -138,45 +133,135 @@ namespace ProjektKviz
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         public static void PolozitOtazku(Otazka otazka)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(otazka.ZneniOtazky);
+            Console.ResetColor();
         }
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
-            throw new NotImplementedException();
+            int moznost = 1;
+            foreach (Odpoved odpoved in otazka.MozneOdpovedi)
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(moznost + ") " + odpoved.ZneniOdpovedi);
+                moznost = moznost + 1;
+                Console.ResetColor();
+            }
         }
         public static int ZiskatOdpoved()
         {
-            throw new NotImplementedException();
+            int CiselOdpoved;
+
+            do
+            {
+                // Dokud nezvoli odpoved 1-4, nepusti ho to dal
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("Zadej cislo odpovedi: ");
+                Console.ResetColor();
+
+                string nakaPromenna = Console.ReadLine();
+
+                CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+            } while (CiselOdpoved <= 4 && CiselOdpoved > 0);
+
+            return CiselOdpoved;
         }
         public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
-            throw new NotImplementedException();
+            // udelat funkci na pravdivost odpovedi
+
+            bool jeSpravna = otazka.MozneOdpovedi[cisloOdpovedi - 1].SpravnostOdpovedi;
+
+            if (jeSpravna == true)
+                return true;
+            else
+                return false;
         }
         #endregion
 
         #region Funkce tymu (3) Lukas + Hepnar + Krejcar
         public static List<Vysledek> NacistVysledky(string cestaSouboru)
         {
-            throw new NotImplementedException();
+            List<Vysledek> seznamVysledku = new List<Vysledek>();
+            string[] radkySouboru = File.ReadAllLines(cestaSouboru);
+
+            int i = 0;
+
+            do
+            {
+                string aktualniRadek = radkySouboru[i];
+                int mezeravRadku = aktualniRadek.IndexOf(' ');
+
+                string prezdivka = aktualniRadek.Substring(0, mezeravRadku);
+                string skore = aktualniRadek.Substring(mezeravRadku + 1);
+
+                Vysledek V;
+                V = new Vysledek();
+                V.Prezdivka = prezdivka;
+                V.Skore = Convert.ToUInt32(skore);
+
+                seznamVysledku.Add(V);
+                i = i + 1;
+
+            } while (i < radkySouboru.Length);
+
+            return seznamVysledku;
         }
         public static bool JeDostatecneVysoke(uint skore, List<Vysledek> vysledky)
         {
-            throw new NotImplementedException();
+            int x;
+            x = vysledky.Count;
+
+            int minSkoreVTabulceVysledku = (int)vysledky[x - 1].Skore;
+
+            if (minSkoreVTabulceVysledku < skore)
+                return true;
+            else
+                return false;
         }
         #endregion
 
         #region Funkce tymu (4) Gaspar + Janus + Janicek + Kabrt
         public static string ZiskatPrezdivku()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Zadejte přezdívku: ");
+            string prezdivka = Console.ReadLine();
+
+            return prezdivka;
         }
-        public static void ZaraditDoVysledku(string prezdivka, uint skore, List<Vysledek> vysledky)
+        public static void ZaraditDoVysledku(string prezdivka, uint ziskaneSkore, List<Vysledek> vysledky)
         {
-            throw new NotImplementedException();
+            Vysledek v = new Vysledek();
+            v.Prezdivka = prezdivka;
+            v.Skore = ziskaneSkore;
+
+            int x = 0;
+            if (vysledky[x].Skore > ziskaneSkore)
+                x = x + 1;
+            else
+            {
+                vysledky.Insert(x, v);
+            }
+
+            int p = vysledky.Count();
+            vysledky.RemoveAt(p - 1);
+
         }
         public static void ZapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
         {
-            throw new NotImplementedException();
+            int x = 0;
+            int p = vysledky.Count();
+            string zapsat = "";
+            do
+            {
+                zapsat = zapsat + vysledky[x].Prezdivka + " " + vysledky[x].Skore + "\n";
+                x += 1;
+            }
+            while (x < p);
+
+            File.WriteAllText(cestaSouboru, zapsat);
         }
         #endregion
 
