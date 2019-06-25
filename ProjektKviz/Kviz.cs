@@ -131,16 +131,19 @@ namespace ProjektKviz
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         public static void PolozitOtazku(Otazka otazka)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(otazka.ZneniOtazky);
             Console.ResetColor();
         }
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
+
             int moznost = 1;
             foreach (Odpoved odpoved in otazka.MozneOdpovedi)
             {
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(moznost + ") " + odpoved.ZneniOdpovedi);
                 moznost = moznost + 1;
                 Console.ResetColor();
@@ -149,6 +152,8 @@ namespace ProjektKviz
         public static int ZiskatOdpoved()
         {
             int CiselOdpoved;
+
+            Console.WriteLine();
 
             do
             {
@@ -162,7 +167,7 @@ namespace ProjektKviz
 
                 CiselOdpoved = Convert.ToInt32(nakaPromenna);
 
-            } while (CiselOdpoved <= 4 && CiselOdpoved > 0);
+            } while (CiselOdpoved > 4 || CiselOdpoved <= 0);
 
             return CiselOdpoved;
         }
