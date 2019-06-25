@@ -98,7 +98,7 @@ namespace ProjektKviz
                     else if (s.EndsWith("*"))
                     {
                         d = new Odpoved();
-                        d.ZneniOdpovedi = s;
+                        d.ZneniOdpovedi = s.Substring(0, s.Length - 1);
                         d.SpravnostOdpovedi = true;
                         o.MozneOdpovedi.Add(d);
                         vysledek.Add(o);
