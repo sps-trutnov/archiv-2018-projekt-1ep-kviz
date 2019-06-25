@@ -75,16 +75,17 @@ namespace ProjektKviz
         public static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
             Console.WriteLine("Vypisuji soubor:");
+
+            List<Otazka> vysledek = new List<Otazka>();
             Otazka o = new Otazka();
 
             using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
             {
                 string s;
-                Otazka O = new Otazka(); // otazka se vytvari "zbytecne"
                 Odpoved d;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(s);
+
                     if (s.EndsWith("?"))
                     {
                         o = new Otazka();
@@ -95,9 +96,10 @@ namespace ProjektKviz
                     else if (s.EndsWith("*"))
                     {
                         d = new Odpoved();
-                        d.ZneniOdpovedi = s;
+                        d.ZneniOdpovedi = s.Substring(0, s.Length - 1); 
                         d.SpravnostOdpovedi = true;
                         o.MozneOdpovedi.Add(d);
+                        vysledek.Add(o);
                     }
                     else
                     {
@@ -108,9 +110,8 @@ namespace ProjektKviz
                     }
                 }
             }
-            Console.ReadKey();
 
-            return new List<Otazka>();
+            return vysledek;
         }
         public static void ZamichatOtazky(List<Otazka> otazky)
         {
@@ -130,16 +131,19 @@ namespace ProjektKviz
         #region Funkce tymu (2) Karas + Knizek + Jindra + Dzjubinskij
         public static void PolozitOtazku(Otazka otazka)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(otazka.ZneniOtazky);
             Console.ResetColor();
         }
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
+
             int moznost = 1;
             foreach (Odpoved odpoved in otazka.MozneOdpovedi)
             {
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(moznost + ") " + odpoved.ZneniOdpovedi);
                 moznost = moznost + 1;
                 Console.ResetColor();
@@ -148,6 +152,8 @@ namespace ProjektKviz
         public static int ZiskatOdpoved()
         {
             int CiselOdpoved;
+
+            Console.WriteLine();
 
             do
             {
@@ -161,7 +167,7 @@ namespace ProjektKviz
 
                 CiselOdpoved = Convert.ToInt32(nakaPromenna);
 
-            } while (CiselOdpoved <= 4 && CiselOdpoved > 0);
+            } while (CiselOdpoved > 4 || CiselOdpoved <= 0);
 
             return CiselOdpoved;
         }
