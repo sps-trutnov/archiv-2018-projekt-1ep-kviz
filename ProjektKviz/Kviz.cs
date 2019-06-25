@@ -139,7 +139,6 @@ namespace ProjektKviz
         }
         public static void NabidnoutOdpovedi(Otazka otazka)
         {
-
             int moznost = 1;
             foreach (Odpoved odpoved in otazka.MozneOdpovedi)
             {
