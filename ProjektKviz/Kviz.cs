@@ -85,7 +85,7 @@ namespace ProjektKviz
                 Odpoved d;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(s);
+
                     if (s.EndsWith("?"))
                     {
                         o = new Otazka();
