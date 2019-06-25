@@ -85,7 +85,7 @@ namespace ProjektKviz
                 Odpoved d;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(s);
+
                     if (s.EndsWith("?"))
                     {
                         o = new Otazka();
@@ -96,7 +96,7 @@ namespace ProjektKviz
                     else if (s.EndsWith("*"))
                     {
                         d = new Odpoved();
-                        d.ZneniOdpovedi = s;
+                        d.ZneniOdpovedi = s.Substring(0, s.Length - 1); 
                         d.SpravnostOdpovedi = true;
                         o.MozneOdpovedi.Add(d);
                         vysledek.Add(o);
@@ -110,8 +110,6 @@ namespace ProjektKviz
                     }
                 }
             }
-
-            Console.ReadKey();
 
             return vysledek;
         }
