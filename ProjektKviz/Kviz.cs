@@ -75,12 +75,13 @@ namespace ProjektKviz
         public static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
             Console.WriteLine("Vypisuji soubor:");
+
+            List<Otazka> vysledek = new List<Otazka>();
             Otazka o = new Otazka();
 
             using (System.IO.StreamReader sr = new System.IO.StreamReader(jmenoSouboruSOtazkami))
             {
                 string s;
-                Otazka O = new Otazka(); // otazka se vytvari "zbytecne"
                 Odpoved d;
                 while ((s = sr.ReadLine()) != null)
                 {
@@ -98,6 +99,7 @@ namespace ProjektKviz
                         d.ZneniOdpovedi = s;
                         d.SpravnostOdpovedi = true;
                         o.MozneOdpovedi.Add(d);
+                        vysledek.Add(o);
                     }
                     else
                     {
@@ -108,9 +110,10 @@ namespace ProjektKviz
                     }
                 }
             }
+
             Console.ReadKey();
 
-            return new List<Otazka>();
+            return vysledek;
         }
         public static void ZamichatOtazky(List<Otazka> otazky)
         {
