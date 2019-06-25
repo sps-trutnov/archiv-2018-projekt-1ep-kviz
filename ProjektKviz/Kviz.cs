@@ -111,8 +111,6 @@ namespace ProjektKviz
                 }
             }
 
-            Console.ReadKey();
-
             return vysledek;
         }
         public static void ZamichatOtazky(List<Otazka> otazky)
