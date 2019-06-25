@@ -240,15 +240,16 @@ namespace ProjektKviz
             v.Prezdivka = prezdivka;
             v.Skore = ziskaneSkore;
 
-            int x = 0;
-            if (vysledky[x].Skore > ziskaneSkore)
-                x = x + 1;
-            else
-            {
-                vysledky.Insert(x, v);
-            }
-
             int p = vysledky.Count();
+            int x = 0;
+            do
+                if (vysledky[x].Skore > ziskaneSkore)
+                    x = x + 1;
+                else
+                {
+                    vysledky.Insert(x, v);
+                }
+            while (vysledky[x].Skore > ziskaneSkore);
             vysledky.RemoveAt(p - 1);
 
         }
