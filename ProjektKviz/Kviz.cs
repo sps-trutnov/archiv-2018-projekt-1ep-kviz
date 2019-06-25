@@ -248,7 +248,17 @@ namespace ProjektKviz
         }
         public static void ZapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
         {
-            throw new NotImplementedException();
+            int x = 0;
+            int p = vysledky.Count();
+            string zapsat = "";
+            do
+            {
+                zapsat = zapsat + vysledky[x].Prezdivka + " " + vysledky[x].Skore + "\n";
+                x += 1;
+            }
+            while (x < p);
+
+            File.WriteAllText(cestaSouboru, zapsat);
         }
         #endregion
 
