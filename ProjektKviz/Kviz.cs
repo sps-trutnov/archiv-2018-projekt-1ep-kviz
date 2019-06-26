@@ -244,7 +244,10 @@ namespace ProjektKviz
             {
                 x = x + 1;
             }
-            while (vysledky[x].Skore >= ziskaneSkore);
+            while (vysledky[x].Skore > ziskaneSkore);
+
+            // mín nebo rovno
+
 
             vysledky.Insert(x, v);
             vysledky.RemoveAt(vysledky.Count - 1);
