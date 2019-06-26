@@ -159,12 +159,18 @@ namespace ProjektKviz
                 // Dokud nezvoli odpoved 1-4, nepusti ho to dal
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.Write("Zadej cislo odpovedi: ");
+                Console.Write("Zadej číslo odpovedi: ");
                 Console.ResetColor();
 
                 string nakaPromenna = Console.ReadLine();
+                {
+                    // chce to prošetření vyjímky
+                    try
 
-                CiselOdpoved = Convert.ToInt32(nakaPromenna);
+                    CiselOdpoved = Convert.ToInt32(nakaPromenna);
+
+                    catch
+                }
 
             } while (CiselOdpoved > 4 || CiselOdpoved <= 0);
 
@@ -172,7 +178,6 @@ namespace ProjektKviz
         }
         public static bool JeSpravnaOdpoved(int cisloOdpovedi, Otazka otazka)
         {
-            // udelat funkci na pravdivost odpovedi
 
             bool jeSpravna = otazka.MozneOdpovedi[cisloOdpovedi - 1].SpravnostOdpovedi;
 
@@ -228,7 +233,7 @@ namespace ProjektKviz
         #region Funkce tymu (4) Gaspar + Janus + Janicek + Kabrt
         public static string ZiskatPrezdivku()
         {
-            Console.WriteLine("Zadejte přezdívku: ");
+            Console.WriteLine("Napiš si přezdívku: ");
             string prezdivka = Console.ReadLine();
 
             return prezdivka;
