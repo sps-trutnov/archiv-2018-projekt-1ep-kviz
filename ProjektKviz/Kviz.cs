@@ -74,7 +74,7 @@ namespace ProjektKviz
         #region Funkce tymu (1) Landspersky + Hnyk + Korcak
         public static List<Otazka> NacistOtazky(string jmenoSouboruSOtazkami)
         {
-            Console.WriteLine("Vypisuji soubor:");
+            Console.WriteLine("Tady máš otázky:");
 
             List<Otazka> vysledek = new List<Otazka>();
             Otazka o = new Otazka();
@@ -242,15 +242,13 @@ namespace ProjektKviz
             int x = 0;
             do
             {
-                if(vysledky[x].Skore <= ziskaneSkore)
-                {
-                    vysledky.Insert(x, v);
-                    vysledky.RemoveAt(vysledky.Count - 1);
-                }
-
                 x = x + 1;
             }
-            while (x < vysledky.Count);
+            while (vysledky[x].Skore >= ziskaneSkore);
+
+            vysledky.Insert(x, v);
+            vysledky.RemoveAt(vysledky.Count - 1);
+
         }
         public static void ZapsatVysledky(List<Vysledek> vysledky, string cestaSouboru)
         {
