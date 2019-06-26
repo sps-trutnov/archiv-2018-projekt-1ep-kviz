@@ -166,10 +166,13 @@ namespace ProjektKviz
                 {
                     // chce to prošetření vyjímky
                     try
-
-                    CiselOdpoved = Convert.ToInt32(nakaPromenna);
-
+                    {
+                        CiselOdpoved = Convert.ToInt32(nakaPromenna);
+                    }
                     catch
+                    {
+                        CiselOdpoved = -1;
+                    }
                 }
 
             } while (CiselOdpoved > 4 || CiselOdpoved <= 0);
