@@ -244,7 +244,7 @@ namespace ProjektKviz
             {
                 x = x + 1;
             }
-            while (ziskaneSkore <= vysledky[x].Skore);
+            while (vysledky[x].Skore >= ziskaneSkore);
 
             vysledky.Insert(x, v);
             vysledky.RemoveAt(vysledky.Count - 1);
