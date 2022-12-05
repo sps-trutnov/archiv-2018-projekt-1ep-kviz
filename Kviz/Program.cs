@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace ProjektKviz
+﻿namespace ProjektKviz
 {
-    public class Kviz
+    public class Program
     {
         #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class)
         public class Odpoved
