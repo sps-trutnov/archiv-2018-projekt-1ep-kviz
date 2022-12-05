@@ -1,6 +1,6 @@
 ﻿namespace ProjektKviz
 {
-    public class Program
+    class Program
     {
         #region Pouzite pomocne datove struktury (pro vetsi pohodlnost psane jako class)
         public class Odpoved
@@ -319,8 +319,8 @@
             VypsatVysledky(vysledky, prezdivka);
 
             Console.WriteLine();
+            Console.WriteLine(" (c) Ikonu vytvořil Freepik z webu www.flaticon.com");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" (C) Ikonu vytvořil Freepik z webu www.flaticon.com");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
             Console.WriteLine(" Děkujeme za zahrání!");
